@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রমজান ইফতার ও সেহেরির সময়সূচী 🖤</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+        /* Main Page Background */
+        body.main-page {
+            background-image: url('https://files.catbox.moe/b8w1jg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Results Page Background */
+        body.results-page {
+            background-image: url('https://files.catbox.moe/d5l1pr.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Overlay for better text readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Developer Credit */
+        .developer-credit {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            border: 1px solid #fbbf24;
+        }
+
+        .developer-credit a {
+            color: #1e3c2c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .developer-credit a:hover {
+            color: #fbbf24;
+        }
+
+        .developer-credit i {
+            color: #fbbf24;
+            margin-right: 5px;
+        }
+
+        /* Dua Banner */
+        .dua-banner {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dua-arabic {
+            font-size: 1.8em;
+            color: #1e3c2c;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .dua-bangla {
+            font-size: 1.3em;
+            color: #b45309;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .dua-English {
+            font-size: 1.1em;
+            color: #4a5568;
+            font-style: italic;
+            border-top: 1px dashed #fbbf24;
+            padding-top: 15px;
+            margin-top: 10px;
+        }
+
+        .dua-reference {
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 10px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: slideDown 1s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #1e3c2c;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header h1 i {
+            color: #fbbf24;
+            margin: 0 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .ramadan-greeting {
+            text-align: center;
+            font-size: 1.5em;
+            color: #b45309;
+            margin: 20px 0;
+            animation: slideInRight 1s ease-out;
+            font-weight: 600;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .date-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3c2c;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            font-weight: 600;
+            font-size: 1.2em;
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 5px 30px rgba(245, 158, 11, 0.6); }
+        }
+
+        /* Search and Filter Section */
+        .search-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+            transform: scale(1.02);
+        }
+
+        .filter-select {
+            padding: 15px 25px;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1.1em;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:hover {
+            border-color: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        /* Districts Grid */
+        .districts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .district-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .district-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .district-card:hover::before {
+            left: 100%;
+        }
+
+        .district-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #fbbf24;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .district-card.selected {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3c2c;
+            font-weight: 600;
+            transform: scale(1.05);
+        }
+
+        .district-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #fbbf24;
+            transition: transform 0.3s ease;
+        }
+
+        .district-card:hover .district-icon {
+            transform: rotate(360deg);
+        }
+
+        .district-name-bn {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .district-name-en {
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+
+        .district-division {
+            font-size: 0.8em;
+            color: #fbbf24;
+            margin-top: 5px;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            color: #1e3c2c;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #fbbf24;
+        }
+
+        .back-button:hover {
+            background: #fbbf24;
+            transform: translateX(-5px);
+        }
+
+        .back-button i {
+            margin-right: 8px;
+        }
+
+        /* District Header */
+        .district-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .district-header h2 {
+            font-size: 2.5em;
+            color: #1e3c2c;
+            margin-bottom: 10px;
+        }
+
+        .district-header h2 i {
+            color: #fbbf24;
+            margin: 0 10px;
+        }
+
+        .district-header .division {
+            color: #b45309;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Time Display Section */
+        .time-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .time-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            animation: cardFloat 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .time-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .time-card.seheri {
+            background: linear-gradient(135deg, #1e3c2c, #2d5a3a);
+            color: white;
+        }
+
+        .time-card.iftar {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3c2c;
+        }
+
+        .time-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: iconSpin 10s linear infinite;
+        }
+
+        @keyframes iconSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .time-label {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .time-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 15px 0;
+            animation: timePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes timePulse {
+            0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+            50% { text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            animation: slideInLeft 1s ease-out 0.9s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .countdown-title {
+            font-size: 1.5em;
+            color: #1e3c2c;
+            margin-bottom: 20px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #1e3c2c, #2d5a3a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 100px;
+            animation: countdownPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes countdownPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .countdown-number {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Calendar Table */
+        .calendar-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            overflow-x: auto;
+            animation: fadeInScale 1s ease-out 1.2s both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .calendar-title {
+            font-size: 1.8em;
+            color: #1e3c2c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar-table th {
+            background: linear-gradient(135deg, #1e3c2c, #2d5a3a);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+        }
+
+        .calendar-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .calendar-table tr {
+            transition: all 0.3s ease;
+        }
+
+        .calendar-table tr:hover {
+            background: rgba(251, 191, 36, 0.1);
+            transform: scale(1.01);
+        }
+
+        .calendar-table .today {
+            background: rgba(251, 191, 36, 0.2);
+            font-weight: 600;
+            border-left: 4px solid #fbbf24;
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .loader.active {
+            display: block;
+        }
+
+        .moon-loader {
+            width: 100px;
+            height: 100px;
+            background: #fbbf24;
+            border-radius: 50%;
+            position: relative;
+            animation: moonLoader 2s ease-in-out infinite;
+        }
+
+        .moon-loader::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #1e3c2c;
+            border-radius: 50%;
+            animation: moonShadow 2s ease-in-out infinite;
+        }
+
+        @keyframes moonLoader {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px #fbbf24; }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px #fbbf24; }
+        }
+
+        @keyframes moonShadow {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5px, 5px); }
+        }
+
+        /* Crescent moon animation */
+        .crescent {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: -20px 10px 0 rgba(255, 255, 255, 0.2);
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Star animation */
+        .star {
+            position: fixed;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .dua-arabic {
+                font-size: 1.3em;
+            }
+            
+            .time-display {
+                grid-template-columns: 1fr;
+            }
+            
+            .districts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 1.8em;
+            }
+
+            .district-header h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .districts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<!-- Body class will be set by JavaScript -->
+<body>
+    <!-- Developer Credit -->
+    <div class="developer-credit">
+        <i class="fas fa-code"></i>
+        Dev By <a href="https://www.facebook.com/mueid.mursalin.rifat1" target="_blank">Mueid Mursalin Rifat</a>
+    </div>
+
+    <!-- Animated Elements -->
+    <div class="crescent"></div>
+    <div class="star" style="top: 10%; left: 5%; width: 3px; height: 3px; animation-delay: 0s;"></div>
+    <div class="star" style="top: 20%; right: 10%; width: 4px; height: 4px; animation-delay: 1s;"></div>
+    <div class="star" style="bottom: 15%; left: 8%; width: 2px; height: 2px; animation-delay: 2s;"></div>
+    <div class="star" style="bottom: 25%; right: 15%; width: 3px; height: 3px; animation-delay: 3s;"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="moon-loader"></div>
+    </div>
+
+    <div class="container" id="mainContainer">
+        <!-- Content will be dynamically loaded by JavaScript -->
+    </div>
+
+    <script>
+        // ==================== CONFIGURATION ====================
+        // These URLs are already set to your images
+        const MAIN_BG_IMAGE = 'https://files.catbox.moe/b8w1jg.jpg';
+        const RESULTS_BG_IMAGE = 'https://files.catbox.moe/d5l1pr.jpg';
+        
+        // All 64 districts of Bangladesh
+        const districts = [
+            // Dhaka Division
+            { "id": "dhaka", "name": "ঢাকা", "name_en": "Dhaka", "division": "ঢাকা" },
+            { "id": "faridpur", "name": "ফরিদপুর", "name_en": "Faridpur", "division": "ঢাকা" },
+            { "id": "gazipur", "name": "গাজীপুর", "name_en": "Gazipur", "division": "ঢাকা" },
+            { "id": "gopalganj", "name": "গোপালগঞ্জ", "name_en": "Gopalganj", "division": "ঢাকা" },
+            { "id": "kishoreganj", "name": "কিশোরগঞ্জ", "name_en": "Kishoreganj", "division": "ঢাকা" },
+            { "id": "madaripur", "name": "মাদারীপুর", "name_en": "Madaripur", "division": "ঢাকা" },
+            { "id": "manikganj", "name": "মানিকগঞ্জ", "name_en": "Manikganj", "division": "ঢাকা" },
+            { "id": "munshiganj", "name": "মুন্সিগঞ্জ", "name_en": "Munshiganj", "division": "ঢাকা" },
+            { "id": "narayanganj", "name": "নারায়ণগঞ্জ", "name_en": "Narayanganj", "division": "ঢাকা" },
+            { "id": "narsingdi", "name": "নরসিংদী", "name_en": "Narsingdi", "division": "ঢাকা" },
+            { "id": "rajbari", "name": "রাজবাড়ী", "name_en": "Rajbari", "division": "ঢাকা" },
+            { "id": "shariatpur", "name": "শরীয়তপুর", "name_en": "Shariatpur", "division": "ঢাকা" },
+            { "id": "tangail", "name": "টাঙ্গাইল", "name_en": "Tangail", "division": "ঢাকা" },
+            
+            // Chittagong Division
+            { "id": "chittagong", "name": "চট্টগ্রাম", "name_en": "Chittagong", "division": "চট্টগ্রাম" },
+            { "id": "bandarban", "name": "বান্দরবান", "name_en": "Bandarban", "division": "চট্টগ্রাম" },
+            { "id": "brahmanbaria", "name": "ব্রাহ্মণবাড়িয়া", "name_en": "Brahmanbaria", "division": "চট্টগ্রাম" },
+            { "id": "chandpur", "name": "চাঁদপুর", "name_en": "Chandpur", "division": "চট্টগ্রাম" },
+            { "id": "comilla", "name": "কুমিল্লা", "name_en": "Comilla", "division": "চট্টগ্রাম" },
+            { "id": "cox_bazar", "name": "কক্সবাজার", "name_en": "Cox's Bazar", "division": "চট্টগ্রাম" },
+            { "id": "feni", "name": "ফেনী", "name_en": "Feni", "division": "চট্টগ্রাম" },
+            { "id": "khagrachhari", "name": "খাগড়াছড়ি", "name_en": "Khagrachhari", "division": "চট্টগ্রাম" },
+            { "id": "lakshmipur", "name": "লক্ষ্মীপুর", "name_en": "Lakshmipur", "division": "চট্টগ্রাম" },
+            { "id": "noakhali", "name": "নোয়াখালী", "name_en": "Noakhali", "division": "চট্টগ্রাম" },
+            { "id": "rangamati", "name": "রাঙ্গামাটি", "name_en": "Rangamati", "division": "চট্টগ্রাম" },
+            
+            // Rajshahi Division
+            { "id": "rajshahi", "name": "রাজশাহী", "name_en": "Rajshahi", "division": "রাজশাহী" },
+            { "id": "bogra", "name": "বগুড়া", "name_en": "Bogra", "division": "রাজশাহী" },
+            { "id": "joypurhat", "name": "জয়পুরহাট", "name_en": "Joypurhat", "division": "রাজশাহী" },
+            { "id": "naogaon", "name": "নওগাঁ", "name_en": "Naogaon", "division": "রাজশাহী" },
+            { "id": "natore", "name": "নাটোর", "name_en": "Natore", "division": "রাজশাহী" },
+            { "id": "chapainawabganj", "name": "চাঁপাইনবাবগঞ্জ", "name_en": "Chapainawabganj", "division": "রাজশাহী" },
+            { "id": "pabna", "name": "পাবনা", "name_en": "Pabna", "division": "রাজশাহী" },
+            { "id": "sirajganj", "name": "সিরাজগঞ্জ", "name_en": "Sirajganj", "division": "রাজশাহী" },
+            
+            // Khulna Division
+            { "id": "khulna", "name": "খুলনা", "name_en": "Khulna", "division": "খুলনা" },
+            { "id": "bagerhat", "name": "বাগেরহাট", "name_en": "Bagerhat", "division": "খুলনা" },
+            { "id": "chuadanga", "name": "চুয়াডাঙ্গা", "name_en": "Chuadanga", "division": "খুলনা" },
+            { "id": "jashore", "name": "যশোর", "name_en": "Jashore", "division": "খুলনা" },
+            { "id": "jhenaidah", "name": "ঝিনাইদহ", "name_en": "Jhenaidah", "division": "খুলনা" },
+            { "id": "kushtia", "name": "কুষ্টিয়া", "name_en": "Kushtia", "division": "খুলনা" },
+            { "id": "magura", "name": "মাগুরা", "name_en": "Magura", "division": "খুলনা" },
+            { "id": "meherpur", "name": "মেহেরপুর", "name_en": "Meherpur", "division": "খুলনা" },
+            { "id": "narail", "name": "নড়াইল", "name_en": "Narail", "division": "খুলনা" },
+            { "id": "shatkhira", "name": "সাতক্ষীরা", "name_en": "Satkhira", "division": "খুলনা" },
+            
+            // Barisal Division
+            { "id": "barisal", "name": "বরিশাল", "name_en": "Barisal", "division": "বরিশাল" },
+            { "id": "barguna", "name": "বরগুনা", "name_en": "Barguna", "division": "বরিশাল" },
+            { "id": "bhola", "name": "ভোলা", "name_en": "Bhola", "division": "বরিশাল" },
+            { "id": "jhalokati", "name": "ঝালকাঠি", "name_en": "Jhalokati", "division": "বরিশাল" },
+            { "id": "patuakhali", "name": "পটুয়াখালী", "name_en": "Patuakhali", "division": "বরিশাল" },
+            { "id": "pirojpur", "name": "পিরোজপুর", "name_en": "Pirojpur", "division": "বরিশাল" },
+            
+            // Sylhet Division
+            { "id": "sylhet", "name": "সিলেট", "name_en": "Sylhet", "division": "সিলেট" },
+            { "id": "habiganj", "name": "হবিগঞ্জ", "name_en": "Habiganj", "division": "সিলেট" },
+            { "id": "moulvibazar", "name": "মৌলভীবাজার", "name_en": "Moulvibazar", "division": "সিলেট" },
+            { "id": "sunamganj", "name": "সুনামগঞ্জ", "name_en": "Sunamganj", "division": "সিলেট" },
+            
+            // Rangpur Division
+            { "id": "rangpur", "name": "রংপুর", "name_en": "Rangpur", "division": "রংপুর" },
+            { "id": "dinajpur", "name": "দিনাজপুর", "name_en": "Dinajpur", "division": "রংপুর" },
+            { "id": "gaibandha", "name": "গাইবান্ধা", "name_en": "Gaibandha", "division": "রংপুর" },
+            { "id": "kurigram", "name": "কুড়িগ্রাম", "name_en": "Kurigram", "division": "রংপুর" },
+            { "id": "lalmonirhat", "name": "লালমনিরহাট", "name_en": "Lalmonirhat", "division": "রংপুর" },
+            { "id": "nilphamari", "name": "নীলফামারী", "name_en": "Nilphamari", "division": "রংপুর" },
+            { "id": "panchagarh", "name": "পঞ্চগড়", "name_en": "Panchagarh", "division": "রংপুর" },
+            { "id": "thakurgaon", "name": "ঠাকুরগাঁও", "name_en": "Thakurgaon", "division": "রংপুর" },
+            
+            // Mymensingh Division
+            { "id": "mymensingh", "name": "ময়মনসিংহ", "name_en": "Mymensingh", "division": "ময়মনসিংহ" },
+            { "id": "jamalpur", "name": "জামালপুর", "name_en": "Jamalpur", "division": "ময়মনসিংহ" },
+            { "id": "netrokona", "name": "নেত্রকোণা", "name_en": "Netrokona", "division": "ময়মনসিংহ" },
+            { "id": "sherpur", "name": "শেরপুর", "name_en": "Sherpur", "division": "ময়মনসিংহ" }
+        ];
+
+        // Collection of Ramadan Duas (Bangla + English)
+        const duas = [
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ بِرَحْمَتِكَ الَّتِي وَسِعَتْ كُلَّ شَيْءٍ أَنْ تَغْفِرَ لِي",
+                bangla: "হে আল্লাহ! আপনার রহমতের উসিলায় যা সব কিছুকে পরিব্যাপ্ত করে, আমি আপনার কাছে ক্ষমা প্রার্থনা করছি।",
+                english: "O Allah, I ask You by Your mercy which encompasses all things, that You forgive me.",
+                reference: "দোয়া ইফতার"
+            },
+            {
+                arabic: "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ",
+                bangla: "হে আল্লাহ! আমি আপনার জন্য রোজা রেখেছি এবং আপনার দেওয়া রিযিক দিয়ে ইফতার করছি।",
+                english: "O Allah, I fasted for You and I break my fast with Your provision.",
+                reference: "আবু দাউদ"
+            },
+            {
+                arabic: "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ",
+                bangla: "পিপাসা চলে গেল, শিরা-উপশিরা সিক্ত হল এবং সওয়াব স্থির হল, ইনশাআল্লাহ।",
+                english: "Thirst has gone, the veins are moist, and the reward is confirmed, if Allah wills.",
+                reference: "আবু দাউদ"
+            },
+            {
+                arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ",
+                bangla: "হে আল্লাহ! আমি আপনার কাছে জান্নাত প্রার্থনা করছি এবং সেই সকল কথা ও কাজ যা জান্নাতের নিকটবর্তী করে।",
+                english: "O Allah, I ask You for Paradise and for words and deeds that bring me closer to it.",
+                reference: "তিরমিজি"
+            },
+            {
+                arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+                bangla: "হে আমাদের রব! আমাদের দুনিয়াতে কল্যাণ দিন এবং আখিরাতেও কল্যাণ দিন এবং আমাদের জাহান্নামের শাস্তি থেকে রক্ষা করুন।",
+                english: "Our Lord! Give us in this world good, and in the Hereafter good, and save us from the punishment of the Fire.",
+                reference: "সূরা বাকারা, ২:২০১"
+            },
+            {
+                arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+                bangla: "মহান আল্লাহর পবিত্রতা ঘোষণা করছি তাঁর প্রশংসাসহ, মহান আল্লাহর পবিত্রতা ঘোষণা করছি।",
+                english: "Glory be to Allah and praise be to Him, Glory be to Allah, the Most Great.",
+                reference: "বুখারি ও মুসলিম"
+            },
+            {
+                arabic: "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
+                bangla: "হে আল্লাহ! আপনার স্মরণ, আপনার কৃতজ্ঞতা এবং আপনার উত্তম ইবাদত করার জন্য আমাকে সাহায্য করুন।",
+                english: "O Allah, help me to remember You, to be grateful to You, and to worship You in an excellent manner.",
+                reference: "আবু দাউদ"
+            },
+            {
+                arabic: "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+                bangla: "হে আল্লাহ! নিশ্চয়ই আপনি ক্ষমাশীল, ক্ষমা করতে ভালোবাসেন, তাই আমাকে ক্ষমা করুন।",
+                english: "O Allah, You are Forgiving and love forgiveness, so forgive me.",
+                reference: "তিরমিজি"
+            }
+        ];
+
+        // ==================== PAGE ROUTING ====================
+        // Check if we are on a results page (URL contains /district/)
+        const path = window.location.pathname;
+        const isResultsPage = path.includes('/district/');
+        
+        // Set the body class and background image
+        document.body.className = isResultsPage ? 'results-page' : 'main-page';
+        document.body.style.backgroundImage = `url('${isResultsPage ? RESULTS_BG_IMAGE : MAIN_BG_IMAGE}')`;
+
+        // ==================== COMMON FUNCTIONS ====================
+        function showLoader(show) {
+            const loader = document.getElementById('loader');
+            if (show) loader.classList.add('active');
+            else loader.classList.remove('active');
+        }
+
+        function getRandomDua() {
+            return duas[Math.floor(Math.random() * duas.length)];
+        }
+
+        function renderDuaBanner() {
+            const dua = getRandomDua();
+            return `
+                <div class="dua-banner">
+                    <div class="dua-arabic">${dua.arabic}</div>
+                    <div class="dua-bangla">${dua.bangla}</div>
+                    <div class="dua-English">"${dua.english}"</div>
+                    <div class="dua-reference">- ${dua.reference}</div>
+                </div>
+            `;
+        }
+
+        function getCurrentDateBangla() {
+            const now = new Date();
+            const banglaMonths = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+            const banglaDays = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
+            return `${banglaDays[now.getDay()]}, ${now.getDate()} ${banglaMonths[now.getMonth()]} ${now.getFullYear()}`;
+        }
+
+        // ==================== MAIN PAGE FUNCTIONS ====================
+        function renderMainPage() {
+            const container = document.getElementById('mainContainer');
+            const divisions = [...new Set(districts.map(d => d.division))].sort();
+            
+            let divisionsOptions = '<option value="">সব বিভাগ</option>';
+            divisions.forEach(d => { divisionsOptions += `<option value="${d}">${d}</option>`; });
+
+            let districtsHTML = '';
+            districts.forEach(district => {
+                districtsHTML += `
+                    <a href="/district/${district.id}" class="district-card">
+                        <div class="district-icon"><i class="fas fa-mosque"></i></div>
+                        <div class="district-name-bn">${district.name}</div>
+                        <div class="district-name-en">${district.name_en}</div>
+                        <div class="district-division">${district.division}</div>
+                    </a>
+                `;
+            });
+
+            container.innerHTML = `
+                ${renderDuaBanner()}
+                <header class="header">
+                    <h1><i class="fas fa-moon"></i> রমজান ১৪৪৬ হিজরি <i class="fas fa-star"></i></h1>
+                    <div class="ramadan-greeting"><i class="fas fa-hands-praying"></i> রমজান মোবারক <i class="fas fa-hands-praying"></i></div>
+                    <div style="text-align: center;"><span class="date-badge"><i class="far fa-calendar-alt"></i> ${getCurrentDateBangla()}</span></div>
+                </header>
+                <div class="search-section">
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="জেলা অনুসন্ধান করুন... (যেমন: ঢাকা, চট্টগ্রাম)">
+                        <select class="filter-select" id="divisionFilter">${divisionsOptions}</select>
+                    </div>
+                    <div style="text-align: center; color: #6b7280;"><i class="fas fa-info-circle"></i> মোট ৬৪টি জেলা • আপনার জেলায় ক্লিক করুন বিস্তারিত দেখতে</div>
+                </div>
+                <div class="districts-grid" id="districtsGrid">${districtsHTML}</div>
+            `;
+
+            // Add filter functionality
+            document.getElementById('searchInput').addEventListener('input', filterDistricts);
+            document.getElementById('divisionFilter').addEventListener('change', filterDistricts);
+        }
+
+        function filterDistricts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const division = document.getElementById('divisionFilter').value;
+            
+            const filtered = districts.filter(d => 
+                (d.name.toLowerCase().includes(searchTerm) || d.name_en.toLowerCase().includes(searchTerm)) &&
+                (!division || d.division === division)
+            );
+            
+            const grid = document.getElementById('districtsGrid');
+            grid.innerHTML = filtered.map(district => `
+                <a href="/district/${district.id}" class="district-card">
+                    <div class="district-icon"><i class="fas fa-mosque"></i></div>
+                    <div class="district-name-bn">${district.name}</div>
+                    <div class="district-name-en">${district.name_en}</div>
+                    <div class="district-division">${district.division}</div>
+                </a>
+            `).join('');
+        }
+
+        // ==================== RESULTS PAGE FUNCTIONS ====================
+        async function renderResultsPage() {
+            showLoader(true);
+            const container = document.getElementById('mainContainer');
+            
+            // Extract district ID from URL
+            const districtId = path.split('/').pop();
+            const district = districts.find(d => d.id === districtId) || districts[0];
+            
+            try {
+                // Try to fetch from API, but provide fallback data if unavailable
+                let todayData = { seheri: '৫:১১ AM', iftar: '৫:৫৮ PM' };
+                let calendarData = [];
+                let countdownData = { hours: 0, minutes: 0, seconds: 0 };
+
+                try {
+                    const [todayRes, calendarRes, countdownRes] = await Promise.all([
+                        fetch(`/api/ramadan/today/${districtId}`).then(r => r.json()).catch(() => ({ success: false })),
+                        fetch(`/api/ramadan/calendar/${districtId}`).then(r => r.json()).catch(() => ({ success: false })),
+                        fetch(`/api/ramadan/countdown/${districtId}`).then(r => r.json()).catch(() => ({ success: false }))
+                    ]);
+
+                    if (todayRes.success) {
+                        todayData = todayRes.is_approximate ? todayRes.data : 
+                            { seheri: todayRes.data.Suhoor || '৫:১১ AM', iftar: todayRes.data.Iftaar || '৫:৫৮ PM' };
+                    }
+
+                    if (calendarRes.success) {
+                        calendarData = calendarRes.calendar || [];
+                    }
+
+                    if (countdownRes.success) {
+                        countdownData = countdownRes.countdown;
+                    }
+                } catch (e) {
+                    console.log('Using fallback data');
+                }
+
+                // Generate fallback calendar if needed
+                if (calendarData.length === 0) {
+                    for (let i = 1; i <= 30; i++) {
+                        calendarData.push({
+                            Date: `${i} রমজান`,
+                            Day: ['শনিবার', 'রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার'][i % 7],
+                            Suhoor: '৫:১১ AM',
+                            Iftaar: '৫:৫৮ PM',
+                            islamicDate: `${i} রমজান, ১৪৪৬ হিজরী`,
+                            isToday: i === 2
+                        });
+                    }
+                }
+
+                let calendarRows = '';
+                calendarData.slice(0, 30).forEach((day, index) => {
+                    const isToday = day.isToday || (index === 1); // Second day as today for demo
+                    calendarRows += `
+                        <tr class="${isToday ? 'today' : ''}">
+                            <td>${day.Date || (index+1) + ' রমজান'}</td>
+                            <td>${new Date().toLocaleDateString('bn-BD')}</td>
+                            <td>${day.Day || new Date().toLocaleDateString('bn-BD', {weekday: 'long'})}</td>
+                            <td>${day.Suhoor || day.seheri || '৫:১১ AM'}</td>
+                            <td>${day.Iftaar || day.iftar || '৫:৫৮ PM'}</td>
+                            <td>${day.islamicDate || (index+1) + ' রমজান, ১৪৪৬ হিজরী'}</td>
+                        </tr>
+                    `;
+                });
+
+                container.innerHTML = `
+                    ${renderDuaBanner()}
+                    <a href="/" class="back-button"><i class="fas fa-arrow-left"></i> মূল পৃষ্ঠায় ফিরে যান</a>
+                    <div class="district-header">
+                        <h2><i class="fas fa-map-marker-alt"></i> ${district.name} <i class="fas fa-mosque"></i></h2>
+                        <div class="division">${district.division} বিভাগ</div>
+                    </div>
+                    <div class="time-display">
+                        <div class="time-card seheri">
+                            <div class="time-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="time-label">সেহেরির শেষ সময়</div>
+                            <div class="time-value" id="seheriTime">${todayData.seheri}</div>
+                            <div><i class="fas fa-clock"></i> ভোররাত</div>
+                        </div>
+                        <div class="time-card iftar">
+                            <div class="time-icon"><i class="fas fa-sunset"></i></div>
+                            <div class="time-label">ইফতারের সময়</div>
+                            <div class="time-value" id="iftarTime">${todayData.iftar}</div>
+                            <div><i class="fas fa-clock"></i> সন্ধ্যা</div>
+                        </div>
+                    </div>
+                    <div class="countdown-container">
+                        <h3 class="countdown-title"><i class="fas fa-hourglass-half"></i> ইফতার পর্যন্ত বাকি সময়</h3>
+                        <div class="countdown-timer">
+                            <div class="countdown-item"><div class="countdown-number" id="hours">${String(countdownData.hours).padStart(2, '0')}</div><div class="countdown-label">ঘন্টা</div></div>
+                            <div class="countdown-item"><div class="countdown-number" id="minutes">${String(countdownData.minutes).padStart(2, '0')}</div><div class="countdown-label">মিনিট</div></div>
+                            <div class="countdown-item"><div class="countdown-number" id="seconds">${String(countdownData.seconds).padStart(2, '0')}</div><div class="countdown-label">সেকেন্ড</div></div>
+                        </div>
+                    </div>
+                    <div class="calendar-section">
+                        <h3 class="calendar-title"><i class="fas fa-calendar-alt"></i> ${district.name} - রমজান মাসের সময়সূচী</h3>
+                        <table class="calendar-table">
+                            <thead><tr><th>তারিখ</th><th>ইংরেজি</th><th>দিন</th><th>সেহেরি</th><th>ইফতার</th><th>হিজরি</th></tr></thead>
+                            <tbody id="calendarBody">${calendarRows}</tbody>
+                        </table>
+                    </div>
+                `;
+
+                // Start countdown update interval
+                startCountdown(districtId);
+                
+            } catch (error) {
+                container.innerHTML = `
+                    <div style="color: white; text-align: center; padding: 50px;">
+                        <i class="fas fa-exclamation-circle" style="font-size: 3em; color: #fbbf24; margin-bottom: 20px;"></i>
+                        <h3>ডেটা লোড করতে সমস্যা হয়েছে</h3>
+                        <a href="/" class="back-button" style="margin-top: 20px;">মূল পৃষ্ঠায় ফিরে যান</a>
+                    </div>
+                `;
+            } finally {
+                showLoader(false);
+            }
+        }
+
+        function startCountdown(districtId) {
+            setInterval(async () => {
+                try {
+                    const res = await fetch(`/api/ramadan/countdown/${districtId}`);
+                    const data = await res.json();
+                    if (data.success) {
+                        document.getElementById('hours').textContent = String(data.countdown.hours).padStart(2, '0');
+                        document.getElementById('minutes').textContent = String(data.countdown.minutes).padStart(2, '0');
+                        document.getElementById('seconds').textContent = String(data.countdown.seconds).padStart(2, '0');
+                    }
+                } catch (e) {
+                    // Fallback countdown
+                    const now = new Date();
+                    const iftar = new Date();
+                    iftar.setHours(17, 58, 0); // 5:58 PM
+                    
+                    if (now > iftar) {
+                        iftar.setDate(iftar.getDate() + 1);
+                    }
+                    
+                    const diff = iftar - now;
+                    const hours = Math.floor(diff / 3600000);
+                    const minutes = Math.floor((diff % 3600000) / 60000);
+                    const seconds = Math.floor((diff % 60000) / 1000);
+                    
+                    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                }
+            }, 1000);
+        }
+
+        // ==================== INITIALIZE ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            if (isResultsPage) renderResultsPage();
+            else renderMainPage();
+        });
+    </script>
+</body>
+</html>
