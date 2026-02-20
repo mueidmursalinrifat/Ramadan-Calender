@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__, template_folder='templates', static_folder='static')
 CORS(app)  # Enable CORS for all routes
 
-# Cache configuration (1 hour TTL)
+# Cache configuration (1 hour TTL) - Note: This will reset per invocation on Vercel
 cache = TTLCache(maxsize=200, ttl=3600)
 
 # Constants
@@ -637,20 +637,24 @@ def get_nearby_districts():
             "error": str(e)
         }), 400
 
+# This is the key part for Vercel - the app instance needs to be exported
 app = app
 
+# For local development
 if __name__ == '__main__':
     # Create templates and static directories if they don't exist
     os.makedirs('templates', exist_ok=True)
     os.makedirs('static', exist_ok=True)
-print("=" * 50)
+    
+    print("=" * 50)
     print("রমজান ইফতার টাইম API - Developed by Mueid Mursalin Rifat")
     print("=" * 50)
     print(f"Server starting at: http://localhost:5000")
     print(f"Number of districts: {len(BANGLADESH_DISTRICTS)}")
     print(f"Default district: Dhaka")
     print("=" * 50)    
-    # Get port from environment variable (for Render)
+    
+    # Get port from environment variable
     port = int(os.environ.get('PORT', 5000))
     
     # Run with debug=False in production
