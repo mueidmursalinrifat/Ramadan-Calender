@@ -6,6 +6,8 @@
 Developer : Mueid Mursalin Rifat
 Facebook : https://www.facebook.com/mueid.mursalin.rifat1
 
+Demo Link : https://ramadan-calender-three.vercel.app/
+
 A simple Flask web app showing Seheri & Iftar times for Bangladesh.
 
 ## Features
