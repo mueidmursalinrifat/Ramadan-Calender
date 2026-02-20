@@ -1,7 +1,7 @@
 
 
 ```markdown
-# 🌙 রমজান ইফতার টাইম API ☪️
+# 🌙 RAMADAN IFTER TIME API ☪️
 
 👨‍💻 Developer : Mueid Mursalin Rifat
 📘 Facebook : https://www.facebook.com/mueid.mursalin.rifat1
