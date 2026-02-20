@@ -637,6 +637,8 @@ def get_nearby_districts():
             "error": str(e)
         }), 400
 
+app = app
+
 if __name__ == '__main__':
     # Create templates and static directories if they don't exist
     os.makedirs('templates', exist_ok=True)
