@@ -488,40 +488,84 @@ def get_calendar(district_id: str = "dhaka"):
 @app.route('/api/ramadan/countdown/<district_id>', methods=['GET'])
 @handle_errors
 def get_countdown(district_id: str = "dhaka"):
-    """Get countdown to next Iftar"""
+    """Get countdown to next Iftar - FIXED VERSION"""
     district_id = validate_district(district_id)
     district = get_district_by_id(district_id)
     today = get_today_date()
     
-    # Get today's info
+    # Default iftar time
+    default_iftar = "5:58 PM"
+    iftar_time_str = default_iftar
+    
     try:
+        # Get today's info
         today_response = get_today_info(district_id)
+        
+        # Handle different response types
         if isinstance(today_response, tuple):
-            today_data = json.loads(today_response[0].get_data(as_text=True))
+            # This is an error response tuple (response, status_code)
+            try:
+                response_data = json.loads(today_response[0].get_data(as_text=True))
+                if response_data.get("is_approximate", False):
+                    iftar_time_str = response_data.get("data", {}).get("iftar", default_iftar)
+                else:
+                    iftar_time_str = response_data.get("data", {}).get("Iftaar", default_iftar)
+            except:
+                iftar_time_str = default_iftar
+        elif isinstance(today_response, dict):
+            # This is a successful response dictionary
+            if today_response.get("is_approximate", False):
+                iftar_time_str = today_response.get("data", {}).get("iftar", default_iftar)
+            else:
+                iftar_time_str = today_response.get("data", {}).get("Iftaar", default_iftar)
         else:
-            today_data = today_response
-    except:
-        # Fallback
-        today_data = {"is_approximate": True, "data": {"Iftaar": "5:58 PM", "iftar": "5:58 PM"}}
+            iftar_time_str = default_iftar
+            
+    except Exception as e:
+        logger.error(f"Error getting iftar time for countdown: {str(e)}")
+        iftar_time_str = default_iftar
     
-    if today_data.get("is_approximate", False):
-        iftar_time_str = today_data.get("data", {}).get("iftar", "5:58 PM")
-    else:
-        today_info = today_data.get("data", {})
-        iftar_time_str = today_info.get("Iftaar", "5:58 PM")
-    
-    # Parse iftar time
+    # Parse iftar time with robust error handling
     try:
-        time_parts = iftar_time_str.split(' ')
-        time_part = time_parts[0]
-        period = time_parts[1] if len(time_parts) > 1 else "PM"
+        # Clean the time string
+        iftar_time_str = iftar_time_str.strip()
         
-        hour, minute = map(int, time_part.split(':'))
+        # Handle different time formats
+        hour = 17  # Default 5 PM
+        minute = 58  # Default 58 minutes
         
-        if period == "PM" and hour != 12:
-            hour += 12
-        elif period == "AM" and hour == 12:
-            hour = 0
+        # Try to parse the time string
+        if ':' in iftar_time_str:
+            # Split time and period
+            if ' ' in iftar_time_str:
+                time_part, period = iftar_time_str.split(' ')
+            else:
+                # Handle case like "5:58PM"
+                if 'PM' in iftar_time_str.upper():
+                    time_part = iftar_time_str.upper().replace('PM', '').strip()
+                    period = "PM"
+                elif 'AM' in iftar_time_str.upper():
+                    time_part = iftar_time_str.upper().replace('AM', '').strip()
+                    period = "AM"
+                else:
+                    time_part = iftar_time_str
+                    period = "PM"  # Default to PM for iftar
+            
+            # Parse hour and minute
+            time_parts = time_part.split(':')
+            if len(time_parts) >= 2:
+                hour = int(time_parts[0])
+                minute = int(time_parts[1])
+                
+                # Convert to 24-hour format
+                if period.upper() == "PM" and hour != 12:
+                    hour += 12
+                elif period.upper() == "AM" and hour == 12:
+                    hour = 0
+        else:
+            # If no colon found, use default
+            logger.warning(f"Invalid time format: {iftar_time_str}, using default")
+            hour, minute = 17, 58
         
         now = datetime.now()
         iftar_time = datetime(now.year, now.month, now.day, hour, minute, 0)
@@ -533,6 +577,11 @@ def get_countdown(district_id: str = "dhaka"):
         # Calculate time difference
         diff = iftar_time - now
         total_seconds = int(diff.total_seconds())
+        
+        # Ensure non-negative values
+        if total_seconds < 0:
+            total_seconds = 0
+            
         hours = total_seconds // 3600
         minutes = (total_seconds % 3600) // 60
         seconds = total_seconds % 60
@@ -549,25 +598,52 @@ def get_countdown(district_id: str = "dhaka"):
                 "total_seconds": total_seconds,
                 "formatted": f"{hours:02d}:{minutes:02d}:{seconds:02d}"
             },
-            "message": "Time remaining until Iftar" if total_seconds > 0 else "Iftar time has passed"
+            "message": "Time remaining until Iftar"
         })
+        
     except Exception as e:
         logger.error(f"Error calculating countdown: {str(e)}")
-        # Return default countdown
-        return jsonify({
-            "success": True,
-            "district": district,
-            "date": today,
-            "iftar_time": "5:58 PM",
-            "countdown": {
-                "hours": 8,
-                "minutes": 30,
-                "seconds": 0,
-                "total_seconds": 30600,
-                "formatted": "08:30:00"
-            },
-            "message": "Approximate countdown"
-        })
+        # Return a calculated default countdown (not hardcoded)
+        try:
+            now = datetime.now()
+            default_iftar_time = datetime(now.year, now.month, now.day, 17, 58, 0)  # 5:58 PM
+            
+            if now > default_iftar_time:
+                default_iftar_time = default_iftar_time + timedelta(days=1)
+            
+            diff = default_iftar_time - now
+            total_seconds = int(diff.total_seconds())
+            
+            return jsonify({
+                "success": True,
+                "district": district,
+                "date": today,
+                "iftar_time": "5:58 PM",
+                "countdown": {
+                    "hours": total_seconds // 3600,
+                    "minutes": (total_seconds % 3600) // 60,
+                    "seconds": total_seconds % 60,
+                    "total_seconds": total_seconds,
+                    "formatted": f"{total_seconds // 3600:02d}:{(total_seconds % 3600) // 60:02d}:{total_seconds % 60:02d}"
+                },
+                "message": "Calculated countdown"
+            })
+        except:
+            # Ultimate fallback
+            return jsonify({
+                "success": True,
+                "district": district,
+                "date": today,
+                "iftar_time": "5:58 PM",
+                "countdown": {
+                    "hours": 8,
+                    "minutes": 30,
+                    "seconds": 0,
+                    "total_seconds": 30600,
+                    "formatted": "08:30:00"
+                },
+                "message": "Approximate countdown"
+            })
 
 @app.route('/api/ramadan/search', methods=['GET'])
 def search_district():
